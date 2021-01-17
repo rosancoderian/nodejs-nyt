@@ -2,9 +2,9 @@ import createApi from "./createApi.js";
 
 const api = createApi("search/v2/articlesearch.json");
 
-function search(params) {
+function search(query) {
   return api.get("", {
-    params,
+    params: query,
   });
 }
 

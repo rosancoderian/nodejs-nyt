@@ -2,28 +2,28 @@ import createApi from "./createApi.js";
 
 const api = createApi("books/v3/");
 
-function getList(params) {
+function getList(query) {
   return api.get("lists.json", {
-    params,
+    params: query,
   });
 }
 
-function getListByDate(params) {
-  const { date, list, ...qParams } = params;
+function getListByDate(params, query) {
+  const { date, list } = params;
   return api.get(`lists/${date}/${list}.json`, {
-    params: qParams,
+    params: query,
   });
 }
 
-function getListHistory(params) {
+function getListHistory(query) {
   return api.get(`lists/best-sellers/history.json`, {
-    params,
+    params: query,
   });
 }
 
-function getListNames(params) {
+function getListNames(query) {
   return api.get(`lists/names.json`, {
-    params,
+    params: query,
   });
 }
 
@@ -33,9 +33,9 @@ function getListOverview(params) {
   });
 }
 
-function getReviews(params) {
+function getReviews(query) {
   return api.get("reviews.json", {
-    params,
+    params: query,
   });
 }
 
