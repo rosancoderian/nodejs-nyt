@@ -4,7 +4,7 @@ import { commonErrorHandler } from "../../libs/utils.js";
 
 export async function getBookList(req, res) {
   try {
-    const result = await apiBooks.getList(req.params, req.query);
+    const result = await apiBooks.getList(req.query);
     return resJSON(res, result.status, result.data);
   } catch (error) {
     return commonErrorHandler(error, res);
@@ -13,7 +13,7 @@ export async function getBookList(req, res) {
 
 export async function getBookListByDate(req, res) {
   try {
-    const result = await apiBooks.getListByDate(req.query);
+    const result = await apiBooks.getListByDate(req.params);
     return resJSON(res, result.status, result.data);
   } catch (error) {
     return commonErrorHandler(error, res);
