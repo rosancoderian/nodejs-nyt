@@ -7,14 +7,15 @@
   "dependencies": {
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "joi": "^17.3.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
   },
   "scripts": {
     "dev": "npx nodemon --inspect index.js",
-    "start": "node index.js"
+    "start": "node index.js",
   },
   "author": "",
   "license": "ISC"

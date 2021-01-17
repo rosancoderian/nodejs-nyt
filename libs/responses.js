@@ -10,8 +10,8 @@ export function resErrorUnauthorized(res) {
   return resJSON(res, 401, { error: "Client is unauthorized." });
 }
 
-export function resErrorInvalidRequest(errors) {
-  return resJSON(res, 400, { error: "Invalid request.", details: errors });
+export function resErrorInvalidRequest(res, details) {
+  return resJSON(res, 400, { error: "Invalid request.", details });
 }
 
 export function resArticlesNotFound(res) {

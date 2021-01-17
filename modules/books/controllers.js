@@ -1,10 +1,14 @@
 import apiBooks from "../../libs/nyt/books.js";
-import { resJSON } from "../../libs/responses.js";
+import { resErrorInvalidRequest, resJSON } from "../../libs/responses.js";
 import { commonErrorHandler } from "../../libs/utils.js";
+import { QueryGetBookList } from "./schemas.js";
 
 export async function getBookList(req, res) {
   try {
-    const result = await apiBooks.getList(req.query);
+    const joiQuery = QueryGetBookList.validate(req.query);
+    if (joiQuery.error)
+      return resErrorInvalidRequest(res, joiQuery.error.details);
+    const result = await apiBooks.getList(joiQuery.value);
     return resJSON(res, result.status, result.data);
   } catch (error) {
     return commonErrorHandler(error, res);
